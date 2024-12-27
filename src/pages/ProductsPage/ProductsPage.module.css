@@ -1,0 +1,27 @@
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    padding: 20px;
+    max-width: 800px;
+    height: auto;
+    margin: 0 auto;
+}
+  
+.page_info{
+    margin: 10px;
+}
+
+  .link_container{
+   margin: 10px;
+   display: flex;
+   justify-content: space-between;
+  }
+
+  .liked_products_button{
+    border: none;
+  }
+
+ 
+  
