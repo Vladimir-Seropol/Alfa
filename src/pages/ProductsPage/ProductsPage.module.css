@@ -23,5 +23,8 @@
     border: none;
   }
 
- 
+  .search_container input{
+    background-color: rgb(243, 242, 242);;
+    border: none;
+  }
   

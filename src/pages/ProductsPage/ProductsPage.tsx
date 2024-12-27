@@ -39,11 +39,19 @@ const ProductsPage: React.FC = () => {
   const navigate = useNavigate();
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState("");
   const productsPerPage = 6;
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
 
   useEffect(() => {
     if (!isLoaded) {
@@ -80,6 +88,15 @@ const ProductsPage: React.FC = () => {
       <h1>Товары:</h1>
       {isLoaded ? (
         <>
+          <div className={styles.search_container}>
+            <input
+              type="text"
+              placeholder="Поиск товаров..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)} 
+              className={styles.search_input}
+            />
+          </div>
           <div className={styles.link_container}>
             <div className={styles.pagination}>
               <Button
